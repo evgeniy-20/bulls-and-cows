@@ -1,13 +1,8 @@
 const answer = '1234';
-if(number === answer) {
-	console.log("Ура, ты победил!")
-} else if(number != answer){
-	console.log(buttonClick());
-} else {
-	console.log(addStep());
-}
 const buttonClick = () => {
-    if(input.value.length != 4) {
+    if(input.value === answer) {
+        alert("Ура, ты победил!")
+    } else if(input.value.length != 4) {
         alert('Error')
     } else {
         addStep();
@@ -21,4 +16,8 @@ const addStep = () => {
     result.appendChild(liElement);
     let text = document.createTextNode(input.value);
     liElement.appendChild(text);
+    let spanLi = document.createElement('span');
+    liElement.appendChild(spanLi);
+    let text1 = document.createTextNode(' 0 биков 0 коров');
+    spanLi.appendChild(text1);
 }
