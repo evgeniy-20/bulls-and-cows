@@ -18,6 +18,21 @@ const addStep = () => {
     liElement.appendChild(text);
     let spanLi = document.createElement('span');
     liElement.appendChild(spanLi);
-    let text1 = document.createTextNode(' 0 биков 0 коров');
+    let str = " " + countBulls(text, answer) + " биков " + countCows() + " коров";
+    let text1 = document.createTextNode(str);
     spanLi.appendChild(text1);
+}
+const countBulls = (num1,answer) => {
+    let bulls = 0;
+    for(let i = 0; i < answer.length; i++) {
+        if (num1[i] === answer[i]) {
+            bulls += 1;
+        }
+    }
+    console.log(num1,answer);
+    return bulls;
+}
+const countCows = () => {
+    let num = 4;
+    return num;
 }
