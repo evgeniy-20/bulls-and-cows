@@ -1,4 +1,21 @@
-const answer = '1234';
+const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+  
+const getRandomAnswer = () => {
+    const numbers = [];
+    for (let i = 0; i < 10; i++) {
+      numbers.push(i);
+    }
+    shuffle(numbers);
+    return numbers.slice(0, 4).join("");
+  };
+  
+const answer = getRandomAnswer();
 const buttonClick = () => {
     if(input.value === answer) {
         alert("Ура, ты победил!")
@@ -31,12 +48,17 @@ const countBulls = (num1,answer) => {
     }
     return bulls;
 }
-const countCows = (num2,answer) => {
+const countCows = (numUser,answer) => {
     let cows = 0;
     for(let i = 0; i < answer.length; i++) {
-        if (answer[i].includes(num2)) {
+        let isBull = numUser[i] === answer[i];
+        let isCow =  answer.includes(numUser[i]);
+        if(!isBull && isCow) {
             cows += 1;
         }
     }
     return cows;
+}
+const clearFunck = () => {
+    let button1 = document.getElementById('button1');
 }
